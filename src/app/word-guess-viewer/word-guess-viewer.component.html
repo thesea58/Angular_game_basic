@@ -1,0 +1,13 @@
+<hr />
+    <div class="d-flex">
+        <app-word-guess-control style="width:20%;"
+                (hint)="onDisplayHintFromControl()"
+                (replay)="onReplayFromControl()"
+                (changeQuestion)="onChangeQuestionFromControl()"
+                #wordGuessControlComponent>
+        </app-word-guess-control>
+
+        <app-word-guess #wordGuessComponent style="width:80%;"
+                (winMsg)="displayWinMsg()"
+        ></app-word-guess>
+    </div>

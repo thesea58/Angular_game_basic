@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row m-4">
+      <div class="col-4">
+        <div class="title">Chọn những lá bài giống nhau</div>
+      </div>
+      <div class="col-4"></div>
+
+      <!-- Remaining Time -->
+      <div class="col-2">
+        <div class="borderTime">THỜI GIAN</div>
+      </div>
+      <div class="col-2">
+        <input type="text" class="time" disabled [(ngModel)]="remainingTime">
+      </div>
+
+      <!-- List of image -->
+      <div class="row m-4">
+        <div class="d-flex flex-wrap gap-4">
+          <div class="check" *ngFor="let item of arrImgDisplay; let i=index" (click)="onClickImg(i)"
+            [ngClass]="{'displayHint': item.isDisplayHint == true}">
+            <ng-container *ngIf="item.isDisplay === true; else notDisplay">
+              <img src="{{ item.source }}" 
+              width="250px" 
+              height="250px"/>
+            </ng-container>
+            <ng-template #notDisplay>
+              <img
+                src="../assets/images/default.jpg"
+                width="250px"
+                height="250px"
+              />
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Replay, Change question
+      <div class="row">
+        <div class="col-9 m-auto ">
+            <button class="btn btn-primary btn-sm p-3" href="#"  role="button"  (click)="onDisplayHint()">Gợi Ý</button>
+          
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-9 m-auto ">
+            <div class="d-flex justify-content-end gap-3">
+              <a class="btn btn-primary btn-sm p-3"  role="button" (click)="onReplay()">Chơi lại</a>
+              <a class="btn btn-primary btn-sm p-3"  id="boder" role="button" (click)="onChangeTheme()">Đổi chủ đề</a>
+            </div>
+        </div>
+      </div> -->
+</div>

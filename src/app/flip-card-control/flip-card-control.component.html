@@ -1,0 +1,10 @@
+<div class="d-grid gap-2 col-6 mx-auto mt-5">
+    <a class="btn btn-secondary btn-sm btn-block p-2" (click)="onDisplayHint()">Gợi ý</a>
+    <a class="btn btn-secondary btn-sm btn-block p-2" (click)="onReplay()">Chơi lại</a>
+    <a class="btn btn-secondary btn-sm btn-block p-2" (click)="onChangeTheme()">Đổi chủ đề</a>
+</div>
+
+<div *ngIf="isDisplayWinMsg" class="d-grid gap-2 col-10 mx-auto mt-5">
+    <span>Chúc mừng bạn hoàn thành</span>
+    <span>Số lần đoán {{guessTimes}}</span>
+</div>

@@ -1,0 +1,72 @@
+<div class="container-fluid mt-3">
+    <!-- Question -->
+    <div class="row">
+        <div class="col-9 bg-primary text-while m-auto p-3" style="height: 100px;">
+            Câu hỏi: {{question}}
+        </div>
+    </div>
+
+    <!-- Remaining chance -->
+    <div class="row">
+        <div class="col-9 text-end m-auto">
+            Bạn còn {{remainingChances}} lượt đoán
+        </div>
+    </div>
+
+    <!-- Display answer -->
+    <div class="row mb-5">
+        <div class="col-6 m-auto">
+            <div class="d-flex justify-content-center gap-4">
+                <ng-container *ngFor="let item of arr_answer">
+                    <ng-container *ngIf="item.isDisplay === true; else notDisplay">
+                        <div class="border-bottom border-succuss border-4 p-3">
+                            {{item.letter}}
+                        </div>
+                    </ng-container>
+                    <ng-template #notDisplay>
+                        <div class="border-bottom border-success border-4 p-3"></div>
+                    </ng-template>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display aphaber letters, pressable --> 
+    <div class="row mb-5">
+        <div class="col-7 m-auto">
+            <div class="d-flex flex-wrap gap-3">
+                <div class="p-3 border border-success" *ngFor="let item of letters; let i=index" (click)="onClickCharacter(i)">{{item}}</div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <!-- Keyword -->
+    <div class="row mb-5">
+        <div class="col-9 m-auto">
+            <div class="d-flex gap-4">
+                <a class="btn btn-primary btn-s">Nhập từ khóa:</a>
+                <input type="text" class="form-control" placeholder="Nhập câu trả lời" name="answerOfUser" [(ngModel)]="answerOfUser">
+                <a class="btn btn-primary btn-sm d-flex align-items-center" (click)="onGuest()">Đoán</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hint -->
+    <div class="row">
+        <div class="col-9 m-auto d-flex gap-4">
+            <!-- <a class="btn btn-primary btn-sm p-3" (click)="onDisplayHint()">Gợi ý</a> -->
+            <div *ngIf="isDisplayHint">{{hint}}</div>
+        </div>
+    </div>
+
+    <!-- Replay, Change question -->
+    <!-- <div class="row">
+        <div class="col-9 m-auto">
+            <div class="d-flex justify-content-end gap-3">
+                <a class="btn btn-primary btn-sm p-3" (click)="onReplay()">Chơi lại</a>
+                <a class="btn btn-primary btn-sm p-3" (click)="onChangeQuestion()">Đổi câu hỏi</a>
+            </div>
+        </div>
+    </div> -->
+</div>
